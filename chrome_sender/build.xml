@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- $Id: build.xml 23139 2008-06-02 19:41:23Z jimmy $ -->
+<project name="catancast/chrome_sender" default="deploy" basedir=".">
+ <target name="deploy-live">
+  <exec dir="." executable="rsync" os="Mac OS X" failonerror="true">
+    <arg value="-aog" />
+    <arg value="-e ssh" />
+    <arg value="/Users/russelm/catancast/chrome_sender/src/" />
+    <arg value="russelm@www.russelm.com:/home/russelm/www/catancast/chrome_sender/" />
+   </exec>
+
+ </target>
+
+ <target name="deploy" depends="deploy-live" />
+</project>

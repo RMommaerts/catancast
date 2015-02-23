@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!-- $Id: build.xml 23139 2008-06-02 19:41:23Z jimmy $ -->
+<project name="catancast/receiver" default="deploy" basedir=".">
+ <target name="deploy-live">
+  <!-- <property name="live.server" value="russelm@www.russelm.com"/>
+  <property name="live.projectDir" value="/home/russelm/catancast"/>
+  <property name="local.projectDir" value="~/catancast/receiver/src"/>
+  <exec executable="rsync">
+   <arg line="rsync -e ssh -Cavz ${local.projectDir}/* ${live.server}:${live.projectDir}/" />
+  </exec> -->
+
+  <exec dir="." executable="rsync" os="Mac OS X" failonerror="true">
+    <arg value="-aog" />
+    <arg value="-e ssh" />
+    <arg value="/Users/russelm/catancast/receiver/src/" />
+    <arg value="russelm@www.russelm.com:/home/russelm/www/catancast/receiver/" />
+   </exec>
+
+ </target>
+
+ <target name="deploy" depends="deploy-live" />
+</project>
